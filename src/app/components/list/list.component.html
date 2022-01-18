@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="Heading">
+    <h3>Dubai Landmarks</h3>
+    <p>
+      Fusce mauris lacus, sodales bibendum hendrerit vel, volutpat non elit.
+      Donec vel gravida ligula. Nam aliquet maximus commodo. Etiam euismod sit
+      amet nulla id
+      maximus.dasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    </p>
+  </div>
+  <div *ngFor="let landmark of landmarks">
+    <div class="Landmark_Info">
+      <div class="Image_Thumbnail">
+        <img src="/assets/images/download.jpg" alt="Landmark Thumbnail" />
+      </div>
+      <div class="Description">
+        <h4>{{ landmark.title }}</h4>
+        <p>{{ landmark.short_info }}</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+// section {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   margin: 0 auto;
+// }
+
+img {
+  width: 250px;
+  height: 250px;
+}
+
+.Heading {
+  padding: 5px 20px;
+  margin-top: 5px;
+}
+.Landmark_Info {
+  display: flex;
+  margin: 20px;
+  border: 1px solid black;
+
+  .Description {
+    margin-left: 20px;
+    text-align: justify;
+    padding: 10px;
+  }
+}
