@@ -6,6 +6,7 @@
 // }
 
 img {
+  // object-fit: cover;
   width: 250px;
   height: 250px;
 }
@@ -22,6 +23,14 @@ img {
   .Description {
     margin-left: 20px;
     text-align: justify;
+    padding: 10px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .Landmark_Info {
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 10px;
   }
 }

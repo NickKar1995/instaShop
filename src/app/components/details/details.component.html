@@ -1,1 +1,15 @@
-<p>details works!</p>
+<app-navbar></app-navbar>
+<section class="wrapper">
+  <div class="Heading">
+    <h2>{{ currentLandmark?.title }}</h2>
+    <p>{{ currentLandmark?.short_info }}</p>
+  </div>
+  <div class="Image">
+    <img src="" alt="Landmark Thumbnail" />
+  </div>
+  <div class="description">
+    <p>{{ currentLandmark?.description }}</p>
+  </div>
+</section>
+<p>{{ currentLandmark?.location }}</p>
+<!-- <p>{{currentLandmark.title}}</p> -->

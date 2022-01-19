@@ -8,10 +8,12 @@ import { LandMarkList } from 'src/app/mocks/mockLandmarks';
   styleUrls: ['./list.component.scss'],
 })
 export class ListComponent implements OnInit {
-  landmarks: Landmark[] | any = LandMarkList;
+  landmarks: Landmark[] | any = [];
   constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.retrieveLandmarks();
+  }
 
   retrieveLandmarks() {
     this.dataService.getAll().subscribe(
