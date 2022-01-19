@@ -9,13 +9,23 @@ import { ListComponent } from './components/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
+
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, ListComponent, DetailsComponent, HomeComponent],
+  declarations: [
+    AppComponent,
+    NavbarComponent,
+    ListComponent,
+    DetailsComponent,
+    HomeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ModalModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

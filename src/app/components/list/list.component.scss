@@ -1,20 +1,23 @@
-// section {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   margin: 0 auto;
-// }
+h4 {
+  cursor: pointers;
+}
 
 img {
   // object-fit: cover;
   width: 250px;
   height: 250px;
+  cursor: pointer;
 }
 
 .Heading {
   padding: 5px 20px;
   margin-top: 5px;
 }
+
+.Header {
+  cursor: pointer;
+}
+
 .Landmark_Info {
   display: flex;
   margin: 20px;
@@ -25,6 +28,11 @@ img {
     text-align: justify;
     padding: 10px;
   }
+}
+
+.Modal_Image {
+  object-fit: cover;
+  width: 100%;
 }
 
 @media screen and (max-width: 770px) {

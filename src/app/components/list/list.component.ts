@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 import { Landmark } from 'src/app/models/Landmark';
-import { LandMarkList } from 'src/app/mocks/mockLandmarks';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -9,7 +10,10 @@ import { LandMarkList } from 'src/app/mocks/mockLandmarks';
 })
 export class ListComponent implements OnInit {
   landmarks: Landmark[] | any = [];
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private modalService: BsModalService
+  ) {}
 
   ngOnInit(): void {
     this.retrieveLandmarks();
@@ -25,5 +29,11 @@ export class ListComponent implements OnInit {
         console.log('Something messed up on fetch', error);
       }
     );
+  }
+
+  modalRef?: BsModalRef;
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

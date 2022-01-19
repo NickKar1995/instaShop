@@ -1,26 +1,72 @@
 <div class="container">
-  <div class="Heading">
+  <header class="Heading">
     <h3>Dubai Landmarks</h3>
     <p>
       Fusce mauris lacus, sodales bibendum hendrerit vel, volutpat non elit.
       Donec vel gravida ligula. Nam aliquet maximus commodo. Etiam euismod sit
-      amet nulla id
-      maximus.dasssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+      amet nulla id maximus.Fusce mauris lacus, sodales bibendum hendrerit vel,
+      volutpat non elit. Donec vel gravida ligula.
     </p>
-  </div>
+  </header>
   <div *ngFor="let landmark of landmarks">
     <div class="Landmark_Info">
       <div class="Image_Thumbnail">
-        <img src="{{ landmark.photo.url }}" alt="Landmark Thumbnail" />
-        <!-- <img src="/assets/images/download.jpg" alt="Landmark Thumbnail" /> -->
+        <img
+          (click)="openModal(template)"
+          src="{{ landmark.photo_thumb.url }}"
+          alt="{{ landmark.photo.name }}"
+        />
       </div>
       <div class="Description">
-        <h4 [routerLink]="['/landmark', landmark.objectId, 'details']">
+        <h4
+          class="Header"
+          [routerLink]="['/landmark', landmark.objectId, 'details']"
+        >
           {{ landmark.title }}
         </h4>
         <p>{{ landmark.short_info }}</p>
       </div>
     </div>
+
+    <!-- Modal -->
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">{{ landmark.title }}</h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          aria-label="Close"
+          (click)="modalRef?.hide()"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <img
+        src="{{ landmark.photo.url }}"
+        class="img-responsive Modal_Image"
+        alt="{{ landmark.photo.name }}"
+      />
+    </ng-template>
+    <!-- End Modal  -->
   </div>
 </div>
-<!-- (click)="activeLandmark(landmark.objectId)" -->
+
+<!-- 
+<button type="button" class="btn btn-primary" (click)="openModal(template)">
+  Create template modal
+</button> -->
+
+<!-- <ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button
+      type="button"
+      class="btn-close close pull-right"
+      aria-label="Close"
+      (click)="modalRef?.hide()"
+    >
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <img src="{{ landmark.photo.url }}" class="img-responsive" />
+</ng-template> -->

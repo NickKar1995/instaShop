@@ -1,15 +1,19 @@
 <app-navbar></app-navbar>
-<section class="wrapper">
+<button (click)="onGoBack()" type="button" class="btn btn-warning">
+  Back to list
+</button>
+
+<div class="container">
   <div class="Heading">
     <h2>{{ currentLandmark?.title }}</h2>
     <p>{{ currentLandmark?.short_info }}</p>
   </div>
   <div class="Image">
-    <img src="" alt="Landmark Thumbnail" />
+    <img src="{{ currentLandmark?.photo?.url }}" alt="Current_Landmark" />
   </div>
-  <div class="description">
+  <div class="Description">
     <p>{{ currentLandmark?.description }}</p>
   </div>
-</section>
-<p>{{ currentLandmark?.location }}</p>
-<!-- <p>{{currentLandmark.title}}</p> -->
+  <div id="map" class="Map"></div>
+</div>
+<!-- AIzaSyC6yWvROmvIr70wYweDCx6Y0fEdk98Mb5s -->

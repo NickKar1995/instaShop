@@ -4,8 +4,13 @@ export interface Landmark {
   updatedAt: 'string';
   url: 'string';
   short_info: 'string';
-  photo: 'string';
-  photo_thumb: 'string';
+  photo: IPhoto;
+  photo_thumb: IPhoto;
   location: number[];
   objectId: 'string';
+}
+
+interface IPhoto {
+  url: 'string';
+  name: 'string';
 }
