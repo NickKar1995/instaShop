@@ -1,4 +1,13 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Form {
+  padding: 20px;
+
+  button {
+    margin: 10px 0;
+    padding: 5px;
+  }
 }

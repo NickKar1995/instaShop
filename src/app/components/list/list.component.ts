@@ -10,6 +10,9 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class ListComponent implements OnInit {
   landmarks: Landmark[] | any = [];
+  // Modal Ref
+  modalRef?: BsModalRef;
+
   constructor(
     private dataService: DataService,
     private modalService: BsModalService
@@ -30,8 +33,6 @@ export class ListComponent implements OnInit {
       }
     );
   }
-
-  modalRef?: BsModalRef;
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
