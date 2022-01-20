@@ -1,5 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -9,11 +9,25 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 })
 export class NavbarComponent implements OnInit {
   modalRef?: BsModalRef;
-  signupForm!: FormControl;
+  signupForm!: FormGroup;
   constructor(private modalService: BsModalService) {}
 
   ngOnInit(): void {
-    this.signupForm = new FormControl({});
+    this.signupForm = new FormGroup({
+      username: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+      password: new FormControl('', [
+        Validators.required,
+        Validators.minLength(4),
+      ]),
+    });
+    console.log('onINIT', this.signupForm);
+  }
+
+  onSubmit() {
+    console.log(this.signupForm);
   }
 
   openModal(template: TemplateRef<any>) {

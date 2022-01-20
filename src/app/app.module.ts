@@ -9,7 +9,7 @@ import { ListComponent } from './components/list/list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
@@ -25,6 +25,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     ModalModule.forRoot(),
   ],
   providers: [],
