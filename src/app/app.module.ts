@@ -11,6 +11,7 @@ import { DetailsComponent } from './components/details/details.component';
 import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ListComponent,
     DetailsComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
