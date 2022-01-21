@@ -26,6 +26,9 @@
         </h4>
         <p>{{ landmark.short_info }}</p>
       </div>
+      <button *ngIf="isAuthorized" type="button" class="btn btn-success">
+        Edit
+      </button>
     </div>
 
     <!-- Modal -->

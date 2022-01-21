@@ -1,7 +1,11 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="#">Travel Empire</a>
-  <button type="button" (click)="openModal(template)" class="btn btn-primary">
-    Login
+  <button
+    type="button"
+    (click)="handleNavbarButton(isAuthorized, template)"
+    class="btn btn-primary"
+  >
+    {{ isAuthorized ? "Logout" : "Login" }}
   </button>
 </nav>
 
@@ -22,7 +26,7 @@
   <div class="Form">
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="exampleInputEmail1">Username</label>
+        <label for="Username">Username</label>
         <input
           formControlName="username"
           type="text"
@@ -39,7 +43,7 @@
         >
       </div>
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="Password">Password</label>
         <input
           formControlName="password"
           type="password"
@@ -67,8 +71,13 @@
       </button>
     </form>
   </div>
-  <app-loading-spinner></app-loading-spinner>
+  <!-- End Form -->
+  <!-- Loading Spinner -->
 
-  <!--End Form -->
+  <!-- End-Loading Spinner -->
 </ng-template>
 <!-- End Modal  -->
+
+<div class="Loading_Spinner">
+  <app-loading-spinner *ngIf="isLoggedIn"></app-loading-spinner>
+</div>
