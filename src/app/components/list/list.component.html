@@ -26,7 +26,12 @@
         </h4>
         <p>{{ landmark.short_info }}</p>
       </div>
-      <button *ngIf="isAuthorized" type="button" class="btn btn-success">
+      <button
+        (click)="onEdit(edit_template)"
+        *ngIf="isAuthorized"
+        type="button"
+        class="btn btn-success"
+      >
         Edit
       </button>
     </div>
@@ -51,25 +56,62 @@
       />
     </ng-template>
     <!-- End Modal  -->
+
+    <!-- Edit Modal -->
+
+    <ng-template #edit_template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">Edit Landmark Info</h4>
+        <button
+          type="button"
+          class="btn-close close pull-right"
+          aria-label="Close"
+          (click)="modalRef?.hide()"
+        >
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <!-- Form -->
+      <div class="Form">
+        <form
+          [formGroup]="editForm"
+          (ngSubmit)="onSubmitEditForm(landmark.objectId)"
+        >
+          <div class="form-group">
+            <label for="Username">Title</label>
+            <input
+              formControlName="title"
+              type="text"
+              class="form-control"
+              aria-describedby="title"
+              placeholder="Enter username"
+            />
+          </div>
+          <div class="form-group">
+            <label for="Short Info">Short Info</label>
+            <input
+              formControlName="short_info"
+              type="text"
+              class="form-control"
+              aria-describedby="title"
+              placeholder="Short Info"
+            />
+          </div>
+          <div class="form-group">
+            <label for="Description">Description</label>
+            <input
+              formControlName="description"
+              type="text"
+              class="form-control"
+              placeholder="Description"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </ng-template>
+    <!-- End Modal  -->
+
+    <!-- End-Edit Modal -->
   </div>
 </div>
-
-<!-- 
-<button type="button" class="btn btn-primary" (click)="openModal(template)">
-  Create template modal
-</button> -->
-
-<!-- <ng-template #template>
-  <div class="modal-header">
-    <h4 class="modal-title pull-left">Modal</h4>
-    <button
-      type="button"
-      class="btn-close close pull-right"
-      aria-label="Close"
-      (click)="modalRef?.hide()"
-    >
-      <span aria-hidden="true" class="visually-hidden">&times;</span>
-    </button>
-  </div>
-  <img src="{{ landmark.photo.url }}" class="img-responsive" />
-</ng-template> -->

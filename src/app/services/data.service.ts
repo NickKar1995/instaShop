@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Landmark } from '../models/Landmark';
 import { LandmarkById } from '../models/LandmarkById';
+import { UpdatedLandmark } from '../models/UpdatedLandmark';
+
 const baseUrl = 'https://frontend-2376.instashop.ae/api/landmarks';
 
 @Injectable({
@@ -16,5 +18,10 @@ export class DataService {
   }
   getById(id: string): Observable<LandmarkById> {
     return this.http.get<LandmarkById>(`${baseUrl}/${id}`);
+  }
+
+  update(id: string, data: any): Observable<UpdatedLandmark> {
+    console.log('STUFF FROM SERVICE', id, data);
+    return this.http.put<UpdatedLandmark>(`${baseUrl}/${id}`, data);
   }
 }

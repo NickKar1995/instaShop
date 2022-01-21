@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -56,6 +56,7 @@ export class NavbarComponent implements OnInit {
     //
     const username = this.signupForm.value.username;
     const password = this.signupForm.value.password;
+
     this.authService.signup(username, password).subscribe(
       (responseData: LoginResponse) => {
         this.isLoggedIn = false;
@@ -75,7 +76,9 @@ export class NavbarComponent implements OnInit {
   handleNavbarButton(isAuthorized: boolean, template: TemplateRef<any>) {
     if (isAuthorized) {
       window.localStorage.clear();
-      this.router.navigate(['']);
+
+      // this.router.navigate(['/']);
+      window.location.reload();
     } else {
       this.modalRef = this.modalService.show(template);
     }
