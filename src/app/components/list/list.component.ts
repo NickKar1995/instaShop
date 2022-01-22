@@ -75,9 +75,15 @@ export class ListComponent implements OnInit, OnDestroy {
       description: description,
     };
 
-    this.dataService.update(id, dataChange).subscribe((response) => {
-      console.log('response from list through service', response);
-    });
+    this.dataService.update(id, dataChange).subscribe(
+      (response) => {
+        console.log('response from list through service', response);
+        this.retrieveLandmarks();
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
     this.editForm.reset();
     //
     this.modalRef?.hide();

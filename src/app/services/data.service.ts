@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Landmark } from '../models/Landmark';
@@ -20,8 +20,14 @@ export class DataService {
     return this.http.get<LandmarkById>(`${baseUrl}/${id}`);
   }
 
-  update(id: string, data: any): Observable<UpdatedLandmark> {
+  update(id: string, data: UpdatedLandmark): Observable<UpdatedLandmark> {
     console.log('STUFF FROM SERVICE', id, data);
-    return this.http.put<UpdatedLandmark>(`${baseUrl}/${id}`, data);
+    const token = window.localStorage.getItem('token');
+
+    return this.http.put<UpdatedLandmark>(`${baseUrl}/${id}`, data, {
+      headers: new HttpHeaders({
+        'x-sessiontoken': token!,
+      }),
+    });
   }
 }
