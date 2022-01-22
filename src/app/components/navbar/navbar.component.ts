@@ -1,6 +1,5 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { LoginResponse } from 'src/app/models/LogInResponse';
 import { AuthService } from 'src/app/services/auth.service';
@@ -20,8 +19,6 @@ export class NavbarComponent implements OnInit {
   isAuthorized: boolean = false;
 
   constructor(
-    private router: Router,
-    private route: ActivatedRoute,
     private authService: AuthService,
     private modalService: BsModalService
   ) {}
@@ -67,10 +64,11 @@ export class NavbarComponent implements OnInit {
 
   handleNavbarButton(isAuthorized: boolean, template: TemplateRef<any>) {
     if (isAuthorized) {
-      window.localStorage.clear();
-      window.location.reload();
+      this.authService.logoutUser();
     } else {
       this.modalRef = this.modalService.show(template);
     }
   }
 }
+// window.localStorage.clear();
+// window.location.reload();

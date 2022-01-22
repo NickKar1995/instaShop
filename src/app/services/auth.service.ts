@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { LoginResponse } from '../models/LogInResponse';
@@ -12,14 +13,13 @@ const loginUrl = 'https://frontend-2376.instashop.ae/api/users/login';
 export class AuthService {
   user = new Subject<LoginResponse>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   signup(username: string, password: string) {
     return this.http
       .post<LoginResponse>(loginUrl, {
         username: username,
         password: password,
-        // returnSecureToken:true
       })
       .pipe(
         tap((responseData: LoginResponse) => {
@@ -27,5 +27,11 @@ export class AuthService {
           this.user.next(user);
         })
       );
+  }
+
+  logoutUser() {
+    window.localStorage.clear();
+    this.user.next({} as LoginResponse);
+    this.router.navigate(['/']);
   }
 }
