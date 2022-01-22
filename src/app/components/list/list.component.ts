@@ -12,11 +12,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class ListComponent implements OnInit, OnDestroy {
   landmarks: Landmark[] | any = [];
-  // Modal Ref
   modalRef?: BsModalRef;
-  // Loading Spinner
   isAuthorized: boolean = false;
-  // Form
   editForm!: FormGroup;
 
   constructor(
@@ -29,10 +26,7 @@ export class ListComponent implements OnInit, OnDestroy {
     this.retrieveLandmarks();
     const token = window.localStorage.getItem('token');
     this.isAuthorized = !!token;
-    console.log(this.isAuthorized, 'token', !!token);
-
     this.authService.user.subscribe((responseData) => {
-      console.log('Subject Here!', responseData);
       this.isAuthorized = !!responseData.sessionToken;
     });
 
@@ -63,8 +57,6 @@ export class ListComponent implements OnInit, OnDestroy {
   }
 
   onSubmitEditForm(id: string) {
-    console.log('id from the landmark in lsit', id);
-
     const title = this.editForm.value.title;
     const short_info = this.editForm.value.short_info;
     const description = this.editForm.value.description;
@@ -76,8 +68,7 @@ export class ListComponent implements OnInit, OnDestroy {
     };
 
     this.dataService.update(id, dataChange).subscribe(
-      (response) => {
-        console.log('response from list through service', response);
+      () => {
         this.retrieveLandmarks();
       },
       (error) => {
@@ -85,7 +76,6 @@ export class ListComponent implements OnInit, OnDestroy {
       }
     );
     this.editForm.reset();
-    //
     this.modalRef?.hide();
   }
 

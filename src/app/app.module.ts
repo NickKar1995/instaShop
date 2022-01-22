@@ -12,7 +12,6 @@ import { HomeComponent } from './components/home/home.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +21,6 @@ import { LoadingSpinnerComponent } from './components/loading-spinner/loading-sp
     DetailsComponent,
     HomeComponent,
     FooterComponent,
-    LoadingSpinnerComponent,
   ],
   imports: [
     BrowserModule,
