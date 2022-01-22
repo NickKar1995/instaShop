@@ -36,7 +36,6 @@
       </button>
     </div>
 
-    <!-- Modal -->
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">{{ landmark.title }}</h4>
@@ -55,9 +54,6 @@
         alt="{{ landmark.photo.name }}"
       />
     </ng-template>
-    <!-- End Modal  -->
-
-    <!-- Edit Modal -->
 
     <ng-template #edit_template>
       <div class="modal-header">
@@ -71,7 +67,7 @@
           <span aria-hidden="true" class="visually-hidden">&times;</span>
         </button>
       </div>
-      <!-- Form -->
+
       <div class="Form">
         <form
           [formGroup]="editForm"
@@ -117,8 +113,5 @@
         </form>
       </div>
     </ng-template>
-    <!-- End Modal  -->
-
-    <!-- End-Edit Modal -->
   </div>
 </div>

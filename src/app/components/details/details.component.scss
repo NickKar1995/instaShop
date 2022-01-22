@@ -11,14 +11,25 @@
   }
   .Heading {
     padding: 10px;
+    margin: 10px 0 10px 0;
+  }
+
+  .Heading_Title {
+    display: flex;
+    justify-content: space-between;
   }
 
   .Description {
     padding: 10px;
   }
 
+  .Map-Element {
+    display: flex;
+    justify-content: center;
+  }
   .Map {
     width: 250px;
     height: 250px;
+    margin-bottom: 10px;
   }
 }

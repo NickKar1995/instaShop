@@ -1,11 +1,16 @@
 <app-navbar></app-navbar>
-<button (click)="onGoBack()" type="button" class="btn btn-warning">
+<!-- <button (click)="onGoBack()" type="button" class="btn btn-warning">
   Back to list
-</button>
+</button> -->
 
 <div class="container">
   <div class="Heading">
-    <h2>{{ currentLandmark?.title }}</h2>
+    <div class="Heading_Title">
+      <h2>{{ currentLandmark?.title }}</h2>
+      <button (click)="onGoBack()" type="button" class="btn btn-warning">
+        Back to list
+      </button>
+    </div>
     <p>{{ currentLandmark?.short_info }}</p>
   </div>
   <div class="Image">
@@ -14,7 +19,9 @@
   <div class="Description">
     <p>{{ currentLandmark?.description }}</p>
   </div>
-  <div id="map" class="Map"></div>
+  <div class="Map-Element">
+    <div id="map" class="Map"></div>
+  </div>
 </div>
 
 <app-footer></app-footer>
