@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { DetailsComponent } from './components/details/details.component';
-import { HomeComponent } from './components/home/home.component';
+import { HomeComponent } from './Pages/home/home.component';
+import { DetailsComponent } from './Pages/details/details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'landmarks', pathMatch: 'full' },
