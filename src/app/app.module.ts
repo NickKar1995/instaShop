@@ -14,7 +14,6 @@ import { DetailsComponent } from './Pages/details/details.component';
 import { HomeComponent } from './Pages/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 
-//
 
 @NgModule({
   declarations: [

@@ -81,7 +81,7 @@ export class ListComponent implements OnInit, OnDestroy {
       () => {
         this.toastrService.success(
           'Landmark Updated Succesfully',
-          'Major Error',
+          '',
           {
             timeOut: 3000,
           }

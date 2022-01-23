@@ -54,7 +54,7 @@ export class NavbarComponent implements OnInit {
         storage.setItem('token', responseData.sessionToken);
         this.toastrService.success(
           'Welcome Admin! How about some editing?',
-          'Major Error',
+          '',
           {
             timeOut: 3000,
           }
