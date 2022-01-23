@@ -15,7 +15,7 @@ Dubai Landmark Home Application
 git clone instaShop
 cd instaShop
 npm install
-ng serve
+npm start
 ```
 
 ### Features implemented
