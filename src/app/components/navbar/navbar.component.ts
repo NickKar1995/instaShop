@@ -1,6 +1,7 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { ToastrService } from 'ngx-toastr';
 import { LoginResponse } from 'src/app/models/LogInResponse';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,11 +15,10 @@ const storage = window.localStorage;
 export class NavbarComponent implements OnInit {
   modalRef?: BsModalRef;
   signupForm!: FormGroup;
-  isLoggedIn = false;
-  error: string = '';
   isAuthorized: boolean = false;
 
   constructor(
+    private toastrService: ToastrService,
     private authService: AuthService,
     private modalService: BsModalService
   ) {}
@@ -52,10 +52,23 @@ export class NavbarComponent implements OnInit {
     this.authService.signup(username, password).subscribe(
       (responseData: LoginResponse) => {
         storage.setItem('token', responseData.sessionToken);
+        this.toastrService.success(
+          'Welcome Admin! How about some editing?',
+          'Major Error',
+          {
+            timeOut: 3000,
+          }
+        );
       },
       (error: any) => {
         console.log('Something messed up the Login', error);
-        this.error = 'An error occured';
+        this.toastrService.error(
+          'We could not patch you in..Try again please..',
+          'Major Error',
+          {
+            timeOut: 3000,
+          }
+        );
       }
     );
     this.signupForm.reset();
@@ -65,10 +78,11 @@ export class NavbarComponent implements OnInit {
   handleNavbarButton(isAuthorized: boolean, template: TemplateRef<any>) {
     if (isAuthorized) {
       this.authService.logoutUser();
+      this.toastrService.warning('Logged out!', 'Logout Action', {
+        timeOut: 3000,
+      });
     } else {
       this.modalRef = this.modalService.show(template);
     }
   }
 }
-// window.localStorage.clear();
-// window.location.reload();

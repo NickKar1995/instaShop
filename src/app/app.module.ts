@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FooterComponent } from './components/footer/footer.component';
 
+//
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     ReactiveFormsModule,
     ModalModule.forRoot(),
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

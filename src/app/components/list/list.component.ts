@@ -4,6 +4,7 @@ import { Landmark } from 'src/app/models/Landmark';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthService } from 'src/app/services/auth.service';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list',
@@ -17,6 +18,7 @@ export class ListComponent implements OnInit, OnDestroy {
   editForm!: FormGroup;
 
   constructor(
+    private toastrService: ToastrService,
     private authService: AuthService,
     private dataService: DataService,
     private modalService: BsModalService
@@ -41,9 +43,17 @@ export class ListComponent implements OnInit, OnDestroy {
     this.dataService.getAll().subscribe(
       (landmarks: Landmark[]) => {
         this.landmarks = landmarks;
+        //
       },
       (error: any) => {
         console.log('Something messed up on fetch', error);
+        this.toastrService.error(
+          'Landmarks could not be fetched',
+          'Major Error',
+          {
+            timeOut: 3000,
+          }
+        );
       }
     );
   }
@@ -69,10 +79,24 @@ export class ListComponent implements OnInit, OnDestroy {
 
     this.dataService.update(id, dataChange).subscribe(
       () => {
+        this.toastrService.success(
+          'Landmark Updated Succesfully',
+          'Major Error',
+          {
+            timeOut: 3000,
+          }
+        );
         this.retrieveLandmarks();
       },
-      (error) => {
-        console.log(error);
+      (error: any) => {
+        console.log('Error on edit form: ', error);
+        this.toastrService.error(
+          'Could not Update Succesfully',
+          'Major Error',
+          {
+            timeOut: 3000,
+          }
+        );
       }
     );
     this.editForm.reset();
