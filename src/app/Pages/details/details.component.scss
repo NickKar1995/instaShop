@@ -23,6 +23,20 @@
     padding: 10px;
   }
 
+  .Landmark_Link {
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 10px;
+
+    .Website_Link {
+      font-size: 17px;
+      margin-left: 10px;
+    }
+    a:hover {
+      text-decoration: none;
+    }
+  }
+
   .Map-Element {
     display: flex;
     justify-content: center;

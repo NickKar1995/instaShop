@@ -16,6 +16,12 @@
   <div class="Description">
     <p>{{ currentLandmark?.description }}</p>
   </div>
+  <div class="Landmark_Link">
+    <h4>Landmark official website:</h4>
+    <a class="Website_Link" href="{{ currentLandmark?.url }}" target="_blank"
+      >{{ currentLandmark?.title }}
+    </a>
+  </div>
   <div class="Map-Element">
     <div id="map" class="Map"></div>
   </div>
