@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Loader } from '@googlemaps/js-api-loader';
-import { LandmarkById } from 'src/app/models/LandmarkById';
 import { DataService } from 'src/app/services/data.service';
+import { LandmarkById } from 'src/app/models/LandmarkById';
 
 @Component({
   selector: 'app-details',

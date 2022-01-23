@@ -1,9 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { AuthService } from 'src/app/services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { LoginResponse } from 'src/app/models/LogInResponse';
-import { AuthService } from 'src/app/services/auth.service';
 
 const storage = window.localStorage;
 

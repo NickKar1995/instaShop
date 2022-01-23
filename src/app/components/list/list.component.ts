@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
-import { Landmark } from 'src/app/models/Landmark';
-import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { AuthService } from 'src/app/services/auth.service';
-import { FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Landmark } from 'src/app/models/Landmark';
 
 @Component({
   selector: 'app-list',
