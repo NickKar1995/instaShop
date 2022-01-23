@@ -21,7 +21,6 @@ export class DataService {
   }
 
   update(id: string, data: UpdatedLandmark): Observable<UpdatedLandmark> {
-    console.log('STUFF FROM SERVICE', id, data);
     const token = window.localStorage.getItem('token');
 
     return this.http.put<UpdatedLandmark>(`${baseUrl}/${id}`, data, {
