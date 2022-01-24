@@ -7,6 +7,7 @@ Dubai Landmark Home Application
 - [Angular](https://angular.io/)
 - [RxJs](https://rxjs.dev/)
 - [Bootstrap](https://valor-software.com/ngx-bootstrap/#/)
+- [ngx-toastr](https://www.npmjs.com/package/ngx-toastr)
 - [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
 
 ### How to run
